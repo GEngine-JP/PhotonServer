@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7D75F0DD34B28E6740E75E9 /* Pods_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B67FDC1236B52C030A9FB /* Pods_study.framework */; };
 		D2BAF2794D34368C3E205A85 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAF34856AFBAD09545F7CC /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A4B67FDC1236B52C030A9FB /* Pods_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1B3BEB32B3B5B5A4347C21 /* Pods-study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-study.release.xcconfig"; path = "Pods/Target Support Files/Pods-study/Pods-study.release.xcconfig"; sourceTree = "<group>"; };
+		C0783932FC7A8D3D1216C877 /* Pods-study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-study.debug.xcconfig"; path = "Pods/Target Support Files/Pods-study/Pods-study.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BAF34856AFBAD09545F7CC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D2BAF6D22AFBDF9E9F71EF48 /* study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = study; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -32,12 +36,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7D75F0DD34B28E6740E75E9 /* Pods_study.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB606D76406DBADF1E00DC87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A4B67FDC1236B52C030A9FB /* Pods_study.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2BAF3B703D1D0CBC5FE5390 /* study */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,7 +72,18 @@
 			children = (
 				D2BAF58DB95218B0C831EC82 /* Products */,
 				D2BAF3B703D1D0CBC5FE5390 /* study */,
+				EF073F4DA4901A39451B8A74 /* Pods */,
+				CB606D76406DBADF1E00DC87 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		EF073F4DA4901A39451B8A74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0783932FC7A8D3D1216C877 /* Pods-study.debug.xcconfig */,
+				3A1B3BEB32B3B5B5A4347C21 /* Pods-study.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -69,9 +93,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2BAF6A4C0E7A1BAE25EB274 /* Build configuration list for PBXNativeTarget "study" */;
 			buildPhases = (
+				9D1DF952FB4319254C63730B /* [CP] Check Pods Manifest.lock */,
 				D2BAF00D9C3908BCD3A8EC6E /* Sources */,
 				D2BAF84D391DCD04C4087FA5 /* Frameworks */,
 				D2BAF670BC11388946EA75D5 /* CopyFiles */,
+				EF41736FEAB920154DF271B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -88,7 +114,8 @@
 		D2BAF0F9E1AF44E5EE14BD4F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = ___FULLUSERNAME___;
 			};
 			buildConfigurationList = D2BAF193FC99ACC1B6370C13 /* Build configuration list for PBXProject "study" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -107,6 +134,39 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9D1DF952FB4319254C63730B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EF41736FEAB920154DF271B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-study/Pods-study-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D2BAF00D9C3908BCD3A8EC6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -121,6 +181,7 @@
 /* Begin XCBuildConfiguration section */
 		D2BAF1D67AD3F70CB1D1609F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A1B3BEB32B3B5B5A4347C21 /* Pods-study.release.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -129,6 +190,7 @@
 		};
 		D2BAF2E2BB674AB33DC7694A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0783932FC7A8D3D1216C877 /* Pods-study.debug.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -169,9 +231,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -215,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -242,6 +305,7 @@
 				D2BAF1D67AD3F70CB1D1609F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

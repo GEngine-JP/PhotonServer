@@ -41,6 +41,7 @@ let score3 = (chinese: 100, math: 90)
 print(score1 > score2)
 
 // 如果自定义 要重载函数
+
 func <(t1: (Int, Int), t2: (Int, Int)) -> Bool {
     if t1.1 != t2.1 {
         return t1.1 < t2.1
