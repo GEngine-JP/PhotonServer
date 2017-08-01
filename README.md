@@ -72,7 +72,7 @@
 * Other (其他）
 * Scripts (脚本）
 * Editor (u3d默认目录) 编辑器相关的内容,不参与打包
-* Shaders (着色器）
+* Shader (着色器）
 * Common ()放原始资料,比如图集打包资料
 * Fonts (字体)
 * StreamingAssets (u3d默认目录 )StreamingBander放的目录,压缩文件,流失读取文件,生成app,
