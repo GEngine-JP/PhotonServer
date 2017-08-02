@@ -7,11 +7,12 @@ public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StateWithEventMap map = new StateWithEventMap();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        transform.forward = transform.forward + 2 * transform.forward * Time.deltaTime;
 	}
 
 }
