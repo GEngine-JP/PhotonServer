@@ -4,15 +4,35 @@ using UnityEngine;
 using GDGeek;
 
 public class Test : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public float MoveSpeed = 20;
+    public float RotateSpeed = 80;
+    // Use this for initialization
+    void Start () {
         
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        transform.forward = transform.forward + 2 * transform.forward * Time.deltaTime;
-	}
 
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log("进入update");
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * MoveSpeed);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Rotate(Vector3.back * Time.deltaTime * RotateSpeed);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(Vector3.right * Time.deltaTime * RotateSpeed);
+            }
+         
+        }
+    }
 }
