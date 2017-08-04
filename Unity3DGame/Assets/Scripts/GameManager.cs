@@ -52,4 +52,12 @@ public class GameManager {
         }
     }
 
+
+    public CharacterType GetCharacterType {
+        get {
+            return (CharacterType)PlayerPrefs.GetInt(GameConst.User.username);
+           
+        }
+    }
+
 }

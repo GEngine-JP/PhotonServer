@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class GameConst {
 
+    public class Animate {
+        public const string IDEL = "IDEL";
+        public const string RUN = "RUN";
+        public const string DEATH = "DEATH";
+        public const string ATTACK = "ATTACK";
+        public const string HIT = "HIT";
+    }
+
+
+
+
+
     /// <summary>
     /// 资源
     /// </summary>
@@ -29,6 +41,15 @@ public class GameConst {
     public class User {
         public const string username = "username";
     }
+}
+
+
+
+public enum CharacterType
+{
+    ZHAN,
+    FA,
+    DAO
 }
 
 
