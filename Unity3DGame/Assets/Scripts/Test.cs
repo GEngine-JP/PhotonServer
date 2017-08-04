@@ -4,9 +4,15 @@ using UnityEngine;
 using GDGeek;
 
 public class Test : MonoBehaviour {
-    public float MoveSpeed = 20;
-    public float RotateSpeed = 80;
-    // Use this for initialization
+    public GameObject cube;
+
+    private string msg;
+
+    private void Awake()
+    {
+        cube = GameObject.Find("Cube");
+    }
+
     void Start () {
         
 	}
@@ -16,23 +22,46 @@ public class Test : MonoBehaviour {
     {
         Debug.Log("进入update");
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.Q))
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed);
+                cube.transform.position = transform.TransformPoint(0, 0, 2);
+                cube.transform.parent = transform;
+                cube.GetComponent<Rigidbody>().isKinematic = true;
             }
-            if (Input.GetKey(KeyCode.A))
+            msg = Input.mousePosition.ToString();
+
+            if (Input.GetKey(KeyCode.E))
             {
-                transform.Translate(Vector3.left * Time.deltaTime * MoveSpeed);
+                if (cube.transform.parent = this.transform) {
+                    cube.GetComponent<Rigidbody>().isKinematic = false;
+                    transform.DetachChildren();
+                    Vector3 direction = transform.TransformDirection(0, 0, 50);
+                    cube.GetComponent<Rigidbody>().AddForce(direction,ForceMode.Force);
+                   
+                }
             }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.Rotate(Vector3.back * Time.deltaTime * RotateSpeed);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(Vector3.right * Time.deltaTime * RotateSpeed);
-            }
-         
         }
+    }
+
+
+    public void mover() {
+        StartCoroutine("HeavyTask");
+    }
+    IEnumerable HeavyTask() {
+
+        // 耗时操作
+        yield return null;
+    }
+
+
+    private void OnGUI()
+    {
+        GUILayout.TextArea("Game time :" + Time.time, 200);
+        GUILayout.TextArea("Game timeSinceLevelLoad :" + Time.timeSinceLevelLoad.ToString(), 200);
+        GUILayout.TextArea("Delta time :" + Time.deltaTime, 200);
+        GUILayout.TextArea("Fixed time :" + Time.fixedTime, 200);
+        GUILayout.TextArea("real time :" + Time.realtimeSinceStartup, 200);
+        GUILayout.TextArea("鼠标的位置 :" + msg, 200);
+       
     }
 }

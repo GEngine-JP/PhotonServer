@@ -16,7 +16,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
        // private CameraRefocus m_CameraRefocus;
         private bool m_PreviouslyGrounded;
         private Vector3 m_OriginalCameraPosition;
-
+        
 
         private void Start()
         {
