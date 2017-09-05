@@ -33,7 +33,7 @@ namespace UnityEngine.AssetBundles
         const float k_ToolbarPadding = 15;
         const float k_MenubarPadding = 32;
 
-        [MenuItem("Window/AssetBundle Browser", priority = 2050)]
+        [MenuItem("Tools/AssetBundle Browser", priority = 2050)]
         static void ShowWindow()
         {
             var window = GetWindow<AssetBundleBrowserMain>();
