@@ -26,6 +26,9 @@ EXEC  sp_attach_db  @dbname  =  'MrCy',
 
 
 # 效果预览
+- 数据库    
+![数据库](MRCY/IMAGE/db.png)
+
 - 登录    
 ![登录](MRCY/IMAGE/login.png)
 
