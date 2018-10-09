@@ -51,7 +51,7 @@
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(125, 21);
             this.txtPwd.TabIndex = 1;
-            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPwd_KeyPress);
+            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPwdKeyPress);
             // 
             // label1
             // 
@@ -81,7 +81,7 @@
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "登录";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmitClick);
             // 
             // btnConcel
             // 
@@ -91,7 +91,7 @@
             this.btnConcel.TabIndex = 5;
             this.btnConcel.Text = "取消";
             this.btnConcel.UseVisualStyleBackColor = true;
-            this.btnConcel.Click += new System.EventHandler(this.btnConcel_Click);
+            this.btnConcel.Click += new System.EventHandler(this.BtnCancelClick);
             // 
             // frmLogin
             // 
