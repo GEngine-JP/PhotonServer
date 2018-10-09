@@ -41,11 +41,13 @@ namespace MrCy {
         /// <param name="e"></param>
         private void BtnSubmitClick(object sender, EventArgs e) {
             if (txtName.Text == "") {
-                MessageBox.Show("请输入用户名", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Constants.PleaseInputUserName, Constants.Warn, MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
             else {
                 if (txtPwd.Text == "") {
-                    MessageBox.Show("请输入密码", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Constants.PleaseInputPassword, Constants.Warn, MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                 }
                 else {
                     var conn = DBConn.CyCon();
@@ -66,10 +68,10 @@ namespace MrCy {
                             Times = DateTime.Now.ToShortDateString()
                         };
                         main.Show();
-                        this.Hide();
+                        Hide();
                     }
                     else {
-                        MessageBox.Show("用户名或密码错误");
+                        MessageBox.Show(Constants.UserNameOrPasswordError);
                     }
                 }
             }
@@ -81,7 +83,8 @@ namespace MrCy {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnCancelClick(object sender, EventArgs e) {
-            if (MessageBox.Show("确定退出系统吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) ==
+            if (MessageBox.Show(Constants.ExitSystem, Constants.Warn, MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Asterisk) ==
                 DialogResult.OK) {
                 Application.Exit();
             }

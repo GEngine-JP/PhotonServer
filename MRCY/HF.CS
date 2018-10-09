@@ -24,7 +24,7 @@ namespace MrCy {
                 conn.Open();
                 var cmd = new SqlCommand(str, conn);
                 cmd.ExecuteNonQuery();
-                if (MessageBox.Show("�ָ��ɹ�", "��ʾ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) ==
+                if (MessageBox.Show(Constants.ExitSystem, Constants.Warn, MessageBoxButtons.OK, MessageBoxIcon.Exclamation) ==
                     DialogResult.OK) {
                     this.Close();
                 }

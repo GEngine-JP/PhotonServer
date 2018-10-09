@@ -18,7 +18,7 @@ namespace MrCy {
 
         private void button2_Click(object sender, EventArgs e) {
             try {
-                var strg = Application.StartupPath.ToString();
+                var strg = Application.StartupPath;
                 strg = strg.Substring(0, strg.LastIndexOf("\\"));
                 strg = strg.Substring(0, strg.LastIndexOf("\\"));
                 strg += @"\Data";
@@ -34,7 +34,7 @@ namespace MrCy {
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
     }
