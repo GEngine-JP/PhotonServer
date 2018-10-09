@@ -26,20 +26,20 @@ EXEC  sp_attach_db  @dbname  =  'MrCy',
 
 
 # 效果预览
-- 登录
+- 登录    
 ![登录](MRCY/IMAGE/login.png)
 
-- 主界面
+- 主界面    
 ![主界面](MRCY/IMAGE/main.png)
 
-- 桌台信息
+- 桌台信息    
 ![桌台信息](MRCY/IMAGE/desk.png)
 
-- 消费查询
+- 消费查询    
 ![消费查询](MRCY/IMAGE/consume.png)
 
 - 结账
 ![结账](MRCY/IMAGE/money.png)
 
-- 点菜
+- 点菜    
 ![点菜](MRCY/IMAGE/order.png)
