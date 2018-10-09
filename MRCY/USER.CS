@@ -11,11 +11,11 @@ namespace MrCy {
         }
 
         private void BindData() {
-            SqlConnection conn = DbConn.CyCon();
-            SqlDataAdapter sda =
+            var conn = DbConn.CyCon();
+            var sda =
                 new SqlDataAdapter("select WaiterName,CardNum,WaiterNum,Sex,Age,Tel,ID from tb_Waiter order by ID desc",
                     conn);
-            DataSet ds = new DataSet();
+            var ds = new DataSet();
             sda.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
         }
@@ -73,11 +73,11 @@ namespace MrCy {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            SqlConnection conn = DbConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select count(*) from tb_Waiter where WaiterName='" + txtname.Text + "'",
+            var cmd = new SqlCommand("select count(*) from tb_Waiter where WaiterName='" + txtname.Text + "'",
                 conn);
-            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            var i = Convert.ToInt32(cmd.ExecuteScalar());
             if (i > 0) {
                 cmd = new SqlCommand(
                     "update tb_Waiter set WaiterName='" + txtname.Text + "',CardNum='" + txtjc.Text + "',WaiterNum='" +
@@ -129,9 +129,9 @@ namespace MrCy {
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            SqlConnection conn = DbConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
-            SqlCommand cmd =
+            var cmd =
                 new SqlCommand(
                     "delete from tb_Waiter where ID='" + dataGridView1.SelectedCells[6].Value.ToString() + "'", conn);
             cmd.ExecuteNonQuery();

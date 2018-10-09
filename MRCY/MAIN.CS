@@ -52,8 +52,8 @@ namespace MrCy {
 
         private void 开台ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
-                string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                Open openroom = new Open();
+                var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+                var openroom = new Open();
                 openroom.name = names;
                 openroom.ShowDialog();
             }
@@ -64,12 +64,12 @@ namespace MrCy {
 
         private void frmMain_Activated(object sender, EventArgs e) {
             lvDesk.Items.Clear();
-            SqlConnection conn = DbConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from tb_Room", conn);
+            var cmd = new SqlCommand("select * from tb_Room", conn);
             sdr = cmd.ExecuteReader();
             while (sdr.Read()) {
-                string zt = sdr["RoomZT"].ToString().Trim();
+                var zt = sdr["RoomZT"].ToString().Trim();
                 AddItems(zt);
             }
 
@@ -78,8 +78,8 @@ namespace MrCy {
 
         private void 点菜ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
-                string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                DC dc = new DC();
+                var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+                var dc = new DC();
                 dc.RName = names;
                 dc.ShowDialog();
             }
@@ -90,10 +90,10 @@ namespace MrCy {
 
         private void 消费查询ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
-                string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                Serch serch = new Serch();
-                serch.RName = names;
-                serch.ShowDialog();
+                var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+                var search = new Search();
+                search.RName = names;
+                search.ShowDialog();
             }
             else {
                 MessageBox.Show("请选择桌台");
@@ -102,8 +102,8 @@ namespace MrCy {
 
         private void 结账ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
-                string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                JZ jz = new JZ();
+                var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+                var jz = new JZ();
                 jz.Rname = names;
                 jz.ShowDialog();
             }
@@ -113,19 +113,19 @@ namespace MrCy {
         }
 
         private void lvDesk_DoubleClick(object sender, EventArgs e) {
-            Details details = new Details();
+            var details = new Details();
             details.TableName = lvDesk.SelectedItems[0].SubItems[0].Text;
             details.ShowDialog();
         }
 
         private void lvDesk_Click(object sender, EventArgs e) {
-            string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-            SqlConnection conn = DbConn.CyCon();
+            var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+            var conn = DbConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from tb_Room where RoomName='" + names + "'", conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
+            var cmd = new SqlCommand("select * from tb_Room where RoomName='" + names + "'", conn);
+            var sdr = cmd.ExecuteReader();
             sdr.Read();
-            string zt = sdr["RoomZT"].ToString().Trim();
+            var zt = sdr["RoomZT"].ToString().Trim();
             sdr.Close();
             if (zt == "使用") {
                 this.contextMenuStrip1.Items[0].Enabled = false;
@@ -148,10 +148,10 @@ namespace MrCy {
 
         private void 取消开台toolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
-                string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                SqlConnection conn = DbConn.CyCon();
+                var names = lvDesk.SelectedItems[0].SubItems[0].Text;
+                var conn = DbConn.CyCon();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("update tb_Room set RoomZT='待用',Num=0 where RoomName='" + names + "'",
+                var cmd = new SqlCommand("update tb_Room set RoomZT='待用',Num=0 where RoomName='" + names + "'",
                     conn);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("delete from tb_GuestFood where zhuotai='" + names + "'", conn);
@@ -165,17 +165,17 @@ namespace MrCy {
         }
 
         private void 桌台信息ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            Desk desk = new Desk();
+            var desk = new Desk();
             desk.ShowDialog();
         }
 
         private void 职员信息ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            User users = new User();
+            var users = new User();
             users.ShowDialog();
         }
 
         private void 日历ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            Calender calender = new Calender();
+            var calender = new Calender();
             calender.ShowDialog();
         }
 
@@ -188,34 +188,34 @@ namespace MrCy {
         }
 
         private void 权限管理ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            QxGl qx = new QxGl();
+            var qx = new QxGl();
             qx.ShowDialog();
         }
 
         private void 系统备份ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            BF bf = new BF();
+            var bf = new BF();
             bf.ShowDialog();
         }
 
         private void 系统恢复ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            HF hf = new HF();
+            var hf = new HF();
             hf.ShowDialog();
         }
 
         private void 口令设置ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            Pwd pwd = new Pwd();
+            var pwd = new Pwd();
             pwd.names = Names;
             pwd.ShowDialog();
         }
 
         private void 锁定系统ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            Lock locksystem = new Lock();
+            var locksystem = new Lock();
             locksystem.Owner = this;
             locksystem.ShowDialog();
         }
 
         private void 关于ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            AboutBox1 ab = new AboutBox1();
+            var ab = new AboutBox1();
             ab.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace MrCy
 {
-    partial class Serch
+    partial class Search
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -136,7 +136,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "消费查询";
-            this.Load += new System.EventHandler(this.frmSerch_Load);
+            this.Load += new System.EventHandler(this.FrmSearchLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -1,19 +1,22 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing.Printing;
 using System.Windows.Forms;
 using MrCy.BaseClass;
 
-namespace MrCy {
-    public partial class Serch : Form {
-        public Serch() {
+namespace MrCy
+{
+    public partial class Search : Form
+    {
+        public Search()
+        {
             InitializeComponent();
         }
 
         public string RName;
 
-        private void frmSerch_Load(object sender, EventArgs e) {
+        private void FrmSearchLoad(object sender, EventArgs e)
+        {
             var conn = DbConn.CyCon();
             var sda = new SqlDataAdapter(
                 "select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" +
@@ -23,11 +26,9 @@ namespace MrCy {
             dataGridView1.DataSource = ds.Tables[0];
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
-        private void printDocument1_BeginPrint(object sender, PrintEventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
