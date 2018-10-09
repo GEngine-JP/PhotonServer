@@ -6,7 +6,7 @@ namespace MrCy.BaseClass
     {
         public static SqlConnection CyCon()
         {
-            return new SqlConnection("server=(local);database=eat;uid=sa;pwd=888888");
+            return new SqlConnection("server=(local);database=MrCy;uid=sa;pwd=sa");
         }
     }
 }
