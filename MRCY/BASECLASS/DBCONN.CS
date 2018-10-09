@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SqlClient;
+
 namespace MrCy.BaseClass
 {
-    class DBConn
+    static class DbConn
     {
         public static SqlConnection CyCon()
         {

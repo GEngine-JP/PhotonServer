@@ -64,7 +64,7 @@ namespace MrCy {
 
         private void frmMain_Activated(object sender, EventArgs e) {
             lvDesk.Items.Clear();
-            SqlConnection conn = DBConn.CyCon();
+            SqlConnection conn = DbConn.CyCon();
             conn.Open();
             SqlCommand cmd = new SqlCommand("select * from tb_Room", conn);
             sdr = cmd.ExecuteReader();
@@ -120,7 +120,7 @@ namespace MrCy {
 
         private void lvDesk_Click(object sender, EventArgs e) {
             string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-            SqlConnection conn = DBConn.CyCon();
+            SqlConnection conn = DbConn.CyCon();
             conn.Open();
             SqlCommand cmd = new SqlCommand("select * from tb_Room where RoomName='" + names + "'", conn);
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -149,7 +149,7 @@ namespace MrCy {
         private void 取消开台toolStripMenuItem_Click(object sender, EventArgs e) {
             if (lvDesk.SelectedItems.Count != 0) {
                 string names = lvDesk.SelectedItems[0].SubItems[0].Text;
-                SqlConnection conn = DBConn.CyCon();
+                SqlConnection conn = DbConn.CyCon();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("update tb_Room set RoomZT='待用',Num=0 where RoomName='" + names + "'",
                     conn);

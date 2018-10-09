@@ -20,7 +20,7 @@ namespace MrCy {
         private void button1_Click(object sender, EventArgs e) {
             try {
                 var str = "use master restore database db_MrCy from Disk='" + textBox1.Text.Trim() + "'";
-                var conn = DBConn.CyCon();
+                var conn = DbConn.CyCon();
                 conn.Open();
                 var cmd = new SqlCommand(str, conn);
                 cmd.ExecuteNonQuery();

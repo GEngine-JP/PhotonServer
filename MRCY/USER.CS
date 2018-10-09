@@ -11,7 +11,7 @@ namespace MrCy {
         }
 
         private void BindData() {
-            SqlConnection conn = DBConn.CyCon();
+            SqlConnection conn = DbConn.CyCon();
             SqlDataAdapter sda =
                 new SqlDataAdapter("select WaiterName,CardNum,WaiterNum,Sex,Age,Tel,ID from tb_Waiter order by ID desc",
                     conn);
@@ -73,7 +73,7 @@ namespace MrCy {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            SqlConnection conn = DBConn.CyCon();
+            SqlConnection conn = DbConn.CyCon();
             conn.Open();
             SqlCommand cmd = new SqlCommand("select count(*) from tb_Waiter where WaiterName='" + txtname.Text + "'",
                 conn);
@@ -129,7 +129,7 @@ namespace MrCy {
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            SqlConnection conn = DBConn.CyCon();
+            SqlConnection conn = DbConn.CyCon();
             conn.Open();
             SqlCommand cmd =
                 new SqlCommand(

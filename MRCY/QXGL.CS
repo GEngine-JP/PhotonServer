@@ -10,7 +10,7 @@ namespace MrCy {
         }
 
         private void frmQxGl_Load(object sender, EventArgs e) {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select * from tb_User", conn);
             var sdr = cmd.ExecuteReader();
@@ -38,7 +38,7 @@ namespace MrCy {
                     break;
             }
 
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("update tb_User set power='" + userpower + "'", conn);
             cmd.ExecuteNonQuery();

@@ -26,7 +26,7 @@ namespace MrCy {
                     txtPwd2.Focus();
                 }
                 else {
-                    var conn = DBConn.CyCon();
+                    var conn = DbConn.CyCon();
                     conn.Open();
                     var cmd = new SqlCommand(
                         "update tb_User set UserPwd='" + txtPwd1.Text + "' where UserName='" + names + "'", conn);

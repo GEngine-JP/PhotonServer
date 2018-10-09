@@ -13,7 +13,7 @@ namespace MrCy {
 
         private void frmDetails_Load(object sender, EventArgs e) {
             txtName.Text = TableName.Trim();
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select * from tb_Room where RoomName='" + txtName.Text + "'", conn);
             var sdr = cmd.ExecuteReader();

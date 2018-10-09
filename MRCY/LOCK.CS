@@ -13,7 +13,7 @@ namespace MrCy {
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select count(*) from tb_User where UserPwd='" + textBox1.Text.Trim() + "'", conn);
             var i = Convert.ToInt32(cmd.ExecuteScalar());

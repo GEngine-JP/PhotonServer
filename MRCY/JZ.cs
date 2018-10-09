@@ -17,7 +17,7 @@ namespace MrCy {
         private void frmJZ_Load(object sender, EventArgs e) {
             this.Text = Rname + "结账";
             groupBox1.Text = "当前桌台-" + Rname;
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             var sda = new SqlDataAdapter(
                 "select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" +
                 Rname + "'order by ID desc", conn);
@@ -86,7 +86,7 @@ namespace MrCy {
                     return;
                 }
                 else {
-                    var conn = DBConn.CyCon();
+                    var conn = DbConn.CyCon();
                     conn.Open();
                     var cmd = new SqlCommand("delete from tb_GuestFood where zhuotai='" + Rname + "'", conn);
                     cmd.ExecuteNonQuery();

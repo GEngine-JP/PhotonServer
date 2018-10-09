@@ -15,7 +15,7 @@ namespace MrCy {
         }
 
         private void BindData() {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             var sda = new SqlDataAdapter(
                 "select RoomName,RoomJC,RoomBJF,RoomWZ,RoomType,RoomBZ,ID from tb_Room order by ID desc", conn);
             var ds = new DataSet();
@@ -42,7 +42,7 @@ namespace MrCy {
         }
 
         private void button6_Click(object sender, EventArgs e) {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand(
                 "delete from tb_Room where RoomName='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", conn);
@@ -77,7 +77,7 @@ namespace MrCy {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select count(*) from tb_Room where RoomName='" + txtname.Text + "'", conn);
             var i = Convert.ToInt32(cmd.ExecuteScalar());

@@ -50,7 +50,7 @@ namespace MrCy {
                         MessageBoxIcon.Warning);
                 }
                 else {
-                    var conn = DBConn.CyCon();
+                    var conn = DbConn.CyCon();
                     conn.Open();
                     var cmd = new SqlCommand(
                         "select count(*) from tb_User where UserName='" + txtName.Text + "' and UserPwd='" +

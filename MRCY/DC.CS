@@ -18,7 +18,7 @@ namespace MrCy {
             var newnode2 = tvFood.Nodes.Add("配菜");
             var newnode3 = tvFood.Nodes.Add("烟酒");
             var newnode4 = tvFood.Nodes.Add("主食");
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select * from tb_food where foodty='1'", conn);
             var sdr = cmd.ExecuteReader();
@@ -75,7 +75,7 @@ namespace MrCy {
             if (foodname == "锅底" || foodname == "配菜" || foodname == "烟酒" || foodname == "主食") {
             }
             else {
-                var conn = DBConn.CyCon();
+                var conn = DbConn.CyCon();
                 conn.Open();
                 var cmd = new SqlCommand("select * from tb_food where foodname='" + foodname + "'", conn);
                 var sdr = cmd.ExecuteReader();
@@ -111,7 +111,7 @@ namespace MrCy {
         }
 
         private void GetData() {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             var sda =
                 new SqlDataAdapter(
                     "select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" +
@@ -131,7 +131,7 @@ namespace MrCy {
         private void btnDelete_Click(object sender, EventArgs e) {
             if (dgvFoods.SelectedRows.Count > 0) {
                 var names = dgvFoods.SelectedCells[0].Value.ToString();
-                var conn = DBConn.CyCon();
+                var conn = DbConn.CyCon();
                 conn.Open();
                 var cmd =
                     new SqlCommand(
@@ -158,7 +158,7 @@ namespace MrCy {
                         return;
                     }
                     else {
-                        var conn = DBConn.CyCon();
+                        var conn = DbConn.CyCon();
                         conn.Open();
                         var cmd = new SqlCommand(
                             "insert into tb_GuestFood(foodnum,foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime) values('" +

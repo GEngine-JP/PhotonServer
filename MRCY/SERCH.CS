@@ -14,7 +14,7 @@ namespace MrCy {
         public string RName;
 
         private void frmSerch_Load(object sender, EventArgs e) {
-            var conn = DBConn.CyCon();
+            var conn = DbConn.CyCon();
             var sda = new SqlDataAdapter(
                 "select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" +
                 RName + "'order by ID desc", conn);

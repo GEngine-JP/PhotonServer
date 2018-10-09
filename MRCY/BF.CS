@@ -23,7 +23,7 @@ namespace MrCy {
                 strg = strg.Substring(0, strg.LastIndexOf("\\"));
                 strg += @"\Data";
                 var sqltxt = @"BACKUP DATABASE db_MrCy TO Disk='" + strg + "\\" + txtpath.Text + ".bak" + "'";
-                var conn = DBConn.CyCon();
+                var conn = DbConn.CyCon();
                 conn.Open();
                 var cmd = new SqlCommand(sqltxt, conn);
                 cmd.ExecuteNonQuery();

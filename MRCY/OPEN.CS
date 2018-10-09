@@ -14,7 +14,7 @@ namespace MrCy {
         public SqlConnection conn;
 
         private void frmOpen_Load(object sender, EventArgs e) {
-            conn = DBConn.CyCon();
+            conn = DbConn.CyCon();
             conn.Open();
             var cmd = new SqlCommand("select * from tb_Room", conn);
             var sdr = cmd.ExecuteReader();
