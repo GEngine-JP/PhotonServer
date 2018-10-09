@@ -17,7 +17,7 @@ namespace MrCy
 
         private void frmHF_Load(object sender, EventArgs e)
         {
-            string strg = Application.StartupPath.ToString();
+            var strg = Application.StartupPath.ToString();
             strg = strg.Substring(0, strg.LastIndexOf("\\"));
             strg = strg.Substring(0, strg.LastIndexOf("\\"));
             strg += @"\Data";
@@ -28,12 +28,12 @@ namespace MrCy
         {
             try
             {
-                string str = "use master restore database db_MrCy from Disk='"+textBox1.Text.Trim()+"'";
-                SqlConnection conn = BaseClass.DBConn.CyCon();
+                var str = "use master restore database db_MrCy from Disk='"+textBox1.Text.Trim()+"'";
+                var conn = BaseClass.DBConn.CyCon();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(str,conn);
+                var cmd = new SqlCommand(str,conn);
                 cmd.ExecuteNonQuery();
-                if (MessageBox.Show("»Ö¸´³É¹¦", "ÌáÊ¾", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                if (MessageBox.Show("ï¿½Ö¸ï¿½ï¿½É¹ï¿½", "ï¿½ï¿½Ê¾", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                 {
                     this.Close();
                 }

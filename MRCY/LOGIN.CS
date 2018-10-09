@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using MrCy.BaseClass;
+
 namespace MrCy
 {
     public partial class Login : Form
@@ -14,7 +11,6 @@ namespace MrCy
         {
             InitializeComponent();
         }
-
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,28 +31,31 @@ namespace MrCy
         {
             if (txtName.Text == "")
             {
-                MessageBox.Show("ÇëÊäÈëÓÃ»§Ãû", "¾¯¸æ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("è¯·è¾“å…¥ç”¨æˆ·å", "è­¦å‘Š", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 if (txtPwd.Text == "")
                 {
-                    MessageBox.Show("ÇëÊäÈëÃÜÂë", "¾¯¸æ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("è¯·è¾“å…¥å¯†ç ", "è­¦å‘Š", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    SqlConnection conn = BaseClass.DBConn.CyCon();
+                    var conn = DBConn.CyCon();
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("select count(*) from tb_User where UserName='" + txtName.Text + "' and UserPwd='" + txtPwd.Text + "'", conn);
-                    int i = Convert.ToInt32(cmd.ExecuteScalar());
+                    var cmd =
+                        new SqlCommand(
+                            "select count(*) from tb_User where UserName='" + txtName.Text + "' and UserPwd='" +
+                            txtPwd.Text + "'", conn);
+                    var i = Convert.ToInt32(cmd.ExecuteScalar());
                     if (i > 0)
                     {
                         cmd = new SqlCommand("select * from tb_User where UserName='" + txtName.Text + "'", conn);
-                        SqlDataReader sdr = cmd.ExecuteReader();
+                        var sdr = cmd.ExecuteReader();
                         sdr.Read();
-                        string UserPower = sdr["power"].ToString().Trim();
+                        var UserPower = sdr["power"].ToString().Trim();
                         conn.Close();
-                        Main main = new Main();
+                        var main = new Main();
                         main.power = UserPower;
                         main.Names = txtName.Text;
                         main.Times = DateTime.Now.ToShortDateString();
@@ -65,7 +64,7 @@ namespace MrCy
                     }
                     else
                     {
-                        MessageBox.Show("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+                        MessageBox.Show("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
                     }
                 }
             }
@@ -73,7 +72,8 @@ namespace MrCy
 
         private void btnConcel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("È·¶¨ÍË³öÏµÍ³Âğ£¿", "ÌáÊ¾", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+            if (MessageBox.Show("ç¡®å®šé€€å‡ºç³»ç»Ÿå—ï¼Ÿ", "æç¤º", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) ==
+                DialogResult.OK)
             {
                 Application.Exit();
             }

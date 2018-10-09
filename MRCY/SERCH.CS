@@ -17,9 +17,9 @@ namespace MrCy
         public string RName;
         private void frmSerch_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = BaseClass.DBConn.CyCon();
-            SqlDataAdapter sda = new SqlDataAdapter("select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" + RName + "'order by ID desc", conn);
-            DataSet ds = new DataSet();
+            var conn = BaseClass.DBConn.CyCon();
+            var sda = new SqlDataAdapter("select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" + RName + "'order by ID desc", conn);
+            var ds = new DataSet();
             sda.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
         }

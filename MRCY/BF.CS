@@ -34,17 +34,17 @@ namespace MrCy
         {
             try
             {
-                string strg = Application.StartupPath.ToString();
+                var strg = Application.StartupPath.ToString();
                 strg = strg.Substring(0, strg.LastIndexOf("\\"));
                 strg = strg.Substring(0, strg.LastIndexOf("\\"));
                 strg += @"\Data";
-                string sqltxt = @"BACKUP DATABASE db_MrCy TO Disk='" + strg + "\\" + txtpath.Text +".bak"+ "'";
-                SqlConnection conn = BaseClass.DBConn.CyCon();
+                var sqltxt = @"BACKUP DATABASE db_MrCy TO Disk='" + strg + "\\" + txtpath.Text +".bak"+ "'";
+                var conn = BaseClass.DBConn.CyCon();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(sqltxt, conn);
+                var cmd = new SqlCommand(sqltxt, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                if (MessageBox.Show("备份成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                if (MessageBox.Show("锟斤拷锟捷成癸拷", "锟斤拷示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
                 {
                     this.Close();
                 }

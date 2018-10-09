@@ -22,8 +22,8 @@ namespace MrCy
         {
             conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from tb_Room",conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
+            var cmd = new SqlCommand("select * from tb_Room",conn);
+            var sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
                cbNum.Items.Add(sdr["RoomName"].ToString().Trim());
@@ -46,7 +46,7 @@ namespace MrCy
         {
             if ((e.KeyChar != 8 && !char.IsDigit(e.KeyChar)) && e.KeyChar != 13)
             {
-                MessageBox.Show("ÇëÊäÈëÊý×Ö");
+                MessageBox.Show("è¯·è¾“å…¥æ•°å­—");
                 e.Handled = true;
             }
         }
@@ -55,12 +55,12 @@ namespace MrCy
         {
             if (txtNum.Text == ""||Convert.ToInt32(txtNum.Text)<=0)
             {
-                MessageBox.Show("ÇëÊäÈëÓÃ²ÍÈËÊý");
+                MessageBox.Show("è¯·è¾“å…¥ç”¨é¤äººæ•°");
             }
             else
             {
-                string RoomName = cbNum.SelectedItem.ToString();
-                SqlCommand cmd1 = new SqlCommand("update tb_Room set GuestName='" + txtName.Text + "',zhangdanDate='" + dateTimePicker1.Value.ToString() + "',Num='" + Convert.ToInt32(txtNum.Text) + "',WaiterName='" + cbWaiter.SelectedItem.ToString() + "',RoomZT='Ê¹ÓÃ' where RoomName='" + name + "'", conn);
+                var RoomName = cbNum.SelectedItem.ToString();
+                var cmd1 = new SqlCommand("update tb_Room set GuestName='" + txtName.Text + "',zhangdanDate='" + dateTimePicker1.Value.ToString() + "',Num='" + Convert.ToInt32(txtNum.Text) + "',WaiterName='" + cbWaiter.SelectedItem.ToString() + "',RoomZT='ä½¿ç”¨' where RoomName='" + name + "'", conn);
                 cmd1.ExecuteNonQuery();
                 this.Close();
             }

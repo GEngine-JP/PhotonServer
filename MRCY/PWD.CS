@@ -24,23 +24,23 @@ namespace MrCy
         {
             if (txtPwd1.Text == "")
             {
-                MessageBox.Show("ÇëÊäÈëÃÜÂë");
+                MessageBox.Show("è¯·è¾“å…¥å¯†ç ");
                 txtPwd1.Focus();
             }
             else
             {
                 if (txtPwd2.Text != txtPwd1.Text)
                 {
-                    MessageBox.Show("Á½´ÎÃÜÂë²»Ò»ÖÂ");
+                    MessageBox.Show("ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
                     txtPwd2.Focus();
                 }
                 else
                 {
-                    SqlConnection conn = BaseClass.DBConn.CyCon();
+                    var conn = BaseClass.DBConn.CyCon();
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("update tb_User set UserPwd='"+txtPwd1.Text+"' where UserName='"+names+"'",conn);
+                    var cmd = new SqlCommand("update tb_User set UserPwd='"+txtPwd1.Text+"' where UserName='"+names+"'",conn);
                     cmd.ExecuteNonQuery();
-                    if (MessageBox.Show("ÃÜÂëĞŞ¸Ä³É¹¦", "ÌáÊ¾", MessageBoxButtons.OK, MessageBoxIcon.Asterisk) == DialogResult.OK)
+                    if (MessageBox.Show("å¯†ç ä¿®æ”¹æˆåŠŸ", "æç¤º", MessageBoxButtons.OK, MessageBoxIcon.Asterisk) == DialogResult.OK)
                     {
                         this.Close();
                     }

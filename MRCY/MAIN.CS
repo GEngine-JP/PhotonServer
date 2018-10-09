@@ -22,26 +22,26 @@ namespace MrCy
         {
                 switch (power)
                 {
-                    case "0": toolStripStatusLabel13.Text = "³¬¼¶¹ÜÀíÔ±"; break;
-                    case "1": toolStripStatusLabel13.Text = "¾­Àí"; break;
-                    case "2": toolStripStatusLabel13.Text = "Ò»°ãÓÃ»§"; break;
+                    case "0": toolStripStatusLabel13.Text = "è¶…çº§ç®¡ç†å‘˜"; break;
+                    case "1": toolStripStatusLabel13.Text = "ç»ç†"; break;
+                    case "2": toolStripStatusLabel13.Text = "ä¸€èˆ¬ç”¨æˆ·"; break;
                 }
             toolStripStatusLabel10.Text = Names;
             toolStripStatusLabel16.Text = Times;
             if (power == "2")
             {
-                ÏµÍ³Î¬»¤SToolStripMenuItem.Enabled = false;
-                »ù´¡ĞÅÏ¢MToolStripMenuItem.Enabled = false;
+                ç³»ç»Ÿç»´æŠ¤SToolStripMenuItem.Enabled = false;
+                åŸºç¡€ä¿¡æ¯MToolStripMenuItem.Enabled = false;
             }
             if (power == "1")
             {
-                ÏµÍ³Î¬»¤SToolStripMenuItem.Enabled = false;
+                ç³»ç»Ÿç»´æŠ¤SToolStripMenuItem.Enabled = false;
             }
             
         }
         private void AddItems(string rzt)
         {
-            if (rzt == "Ê¹ÓÃ")
+            if (rzt == "ä½¿ç”¨")
             {
                 lvDesk.Items.Add(sdr["RoomName"].ToString(), 1);
             }
@@ -52,7 +52,7 @@ namespace MrCy
         }
 
 
-        private void ¿ªÌ¨ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å¼€å°ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvDesk.SelectedItems.Count != 0)
             {
@@ -64,7 +64,7 @@ namespace MrCy
             }
             else
             {
-                MessageBox.Show("ÇëÑ¡Ôñ×ÀÌ¨");
+                MessageBox.Show("è¯·é€‰æ‹©æ¡Œå°");
             }
         }
 
@@ -82,7 +82,7 @@ namespace MrCy
             }
             conn.Close();
         }
-        private void µã²ËToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ç‚¹èœToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvDesk.SelectedItems.Count != 0)
             {
@@ -93,11 +93,11 @@ namespace MrCy
             }
             else
             {
-                MessageBox.Show("ÇëÑ¡Ôñ×ÀÌ¨");
+                MessageBox.Show("è¯·é€‰æ‹©æ¡Œå°");
             }
         }
 
-        private void Ïû·Ñ²éÑ¯ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æ¶ˆè´¹æŸ¥è¯¢ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvDesk.SelectedItems.Count != 0)
             {
@@ -108,10 +108,10 @@ namespace MrCy
             }
             else
             {
-                MessageBox.Show("ÇëÑ¡Ôñ×ÀÌ¨");
+                MessageBox.Show("è¯·é€‰æ‹©æ¡Œå°");
             }
         }
-        private void ½áÕËToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ç»“è´¦ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvDesk.SelectedItems.Count != 0)
             {
@@ -122,7 +122,7 @@ namespace MrCy
             }
             else
             {
-                MessageBox.Show("ÇëÑ¡Ôñ×ÀÌ¨");
+                MessageBox.Show("è¯·é€‰æ‹©æ¡Œå°");
             }
 
         }
@@ -142,7 +142,7 @@ namespace MrCy
             sdr.Read();
             string zt = sdr["RoomZT"].ToString().Trim();
             sdr.Close();
-            if (zt == "Ê¹ÓÃ")
+            if (zt == "ä½¿ç”¨")
             {
                 this.contextMenuStrip1.Items[0].Enabled = false;
                 this.contextMenuStrip1.Items[1].Enabled = true;
@@ -150,7 +150,7 @@ namespace MrCy
                 this.contextMenuStrip1.Items[5].Enabled = true;
                 this.contextMenuStrip1.Items[6].Enabled = true;
             }
-            if (zt == "´ıÓÃ")
+            if (zt == "å¾…ç”¨")
             {
                 this.contextMenuStrip1.Items[0].Enabled = true;
                 this.contextMenuStrip1.Items[1].Enabled = false;
@@ -161,14 +161,14 @@ namespace MrCy
             conn.Close();
         }
 
-        private void È¡Ïû¿ªÌ¨toolStripMenuItem_Click(object sender, EventArgs e)
+        private void å–æ¶ˆå¼€å°toolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lvDesk.SelectedItems.Count != 0)
             {
                 string names = lvDesk.SelectedItems[0].SubItems[0].Text;
                 SqlConnection conn = BaseClass.DBConn.CyCon();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("update tb_Room set RoomZT='´ıÓÃ',Num=0 where RoomName='" + names + "'", conn);
+                SqlCommand cmd = new SqlCommand("update tb_Room set RoomZT='å¾…ç”¨',Num=0 where RoomName='" + names + "'", conn);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("delete from tb_GuestFood where zhuotai='" + names + "'", conn);
                 cmd.ExecuteNonQuery();
@@ -177,84 +177,84 @@ namespace MrCy
             }
             else
             {
-                MessageBox.Show("ÇëÑ¡Ôñ×ÀÌ¨");
+                MessageBox.Show("è¯·é€‰æ‹©æ¡Œå°");
             }
         }
-        private void ×ÀÌ¨ĞÅÏ¢ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void æ¡Œå°ä¿¡æ¯ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Desk desk = new Desk();
             desk.ShowDialog();
         }
 
-        private void Ö°Ô±ĞÅÏ¢ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void èŒå‘˜ä¿¡æ¯ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             User users = new User();
             users.ShowDialog();
         }
 
-        private void ÈÕÀúToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void æ—¥å†ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Calender calender = new Calender();
             calender.ShowDialog();
         }
 
-        private void ¼ÇÊÂ±¾ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void è®°äº‹æœ¬ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("notepad.exe");
         }
 
-        private void ¼ÆËãÆ÷ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void è®¡ç®—å™¨ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("calc.exe");
         }
 
-        private void È¨ÏŞ¹ÜÀíToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void æƒé™ç®¡ç†ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             QxGl qx = new QxGl();
             qx.ShowDialog();
         }
 
-        private void ÏµÍ³±¸·İToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ç³»ç»Ÿå¤‡ä»½ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             BF bf = new BF();
             bf.ShowDialog();
         }
 
-        private void ÏµÍ³»Ö¸´ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ç³»ç»Ÿæ¢å¤ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             HF hf = new HF();
             hf.ShowDialog();
         }
 
-        private void ¿ÚÁîÉèÖÃToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void å£ä»¤è®¾ç½®ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Pwd pwd = new Pwd();
             pwd.names = Names;
             pwd.ShowDialog();
         }
 
-        private void Ëø¶¨ÏµÍ³ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void é”å®šç³»ç»ŸToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Lock locksystem = new Lock();
             locksystem.Owner = this;
             locksystem.ShowDialog();
         }
 
-        private void ¹ØÓÚToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void å…³äºToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AboutBox1 ab = new AboutBox1();
             ab.ShowDialog();
         }
 
-        private void ÍË³öÏµÍ³ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void é€€å‡ºç³»ç»ŸToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("È·¶¨ÍË³ö±¾ÏµÍ³Âğ£¿", "ÌáÊ¾", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show("ç¡®å®šé€€å‡ºæœ¬ç³»ç»Ÿå—ï¼Ÿ", "æç¤º", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 Application.Exit();
             }
         }
 
-        private void ÏµÍ³Î¬»¤SToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ç³»ç»Ÿç»´æŠ¤SToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

@@ -21,9 +21,9 @@ namespace MrCy
         }
         private void BindData()
         {
-            SqlConnection conn = BaseClass.DBConn.CyCon();
-            SqlDataAdapter sda = new SqlDataAdapter("select RoomName,RoomJC,RoomBJF,RoomWZ,RoomType,RoomBZ,ID from tb_Room order by ID desc", conn);
-            DataSet ds = new DataSet();
+            var conn = BaseClass.DBConn.CyCon();
+            var sda = new SqlDataAdapter("select RoomName,RoomJC,RoomBJF,RoomWZ,RoomType,RoomBZ,ID from tb_Room order by ID desc", conn);
+            var ds = new DataSet();
             sda.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
         }
@@ -51,9 +51,9 @@ namespace MrCy
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = BaseClass.DBConn.CyCon();
+            var conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("delete from tb_Room where RoomName='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", conn);
+            var cmd = new SqlCommand("delete from tb_Room where RoomName='" + dataGridView1.SelectedCells[0].Value.ToString() + "'", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
             BindData();
@@ -88,10 +88,10 @@ namespace MrCy
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = BaseClass.DBConn.CyCon();
+            var conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd=new SqlCommand("select count(*) from tb_Room where RoomName='"+txtname.Text+"'",conn);
-            int i=Convert.ToInt32(cmd.ExecuteScalar());
+            var cmd=new SqlCommand("select count(*) from tb_Room where RoomName='"+txtname.Text+"'",conn);
+            var i=Convert.ToInt32(cmd.ExecuteScalar());
             if (i > 0)
             {
                 cmd = new SqlCommand("update tb_Room set RoomName='" + txtname.Text + "',RoomJC='" + txtjc.Text + "',RoomBJF='" + txtbjf.Text + "',RoomWZ='" + txtwz.Text + "',RoomType='" + txtlx.Text + "',RoomBZ='" + txtbz.Text + "' where ID='" + dataGridView1.SelectedCells[6].Value.ToString() + "'", conn);

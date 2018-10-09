@@ -17,11 +17,11 @@ namespace MrCy
         public string RName;
         private void frmDC_Load(object sender, EventArgs e)
         {
-            this.Text = RName + "µã/¼Ó²Ë";
-            TreeNode newnode1 = tvFood.Nodes.Add("¹øµ×");
-            TreeNode newnode2 = tvFood.Nodes.Add("Åä²Ë");
-            TreeNode newnode3 = tvFood.Nodes.Add("ÑÌ¾Æ");
-            TreeNode newnode4 = tvFood.Nodes.Add("Ö÷Ê³");
+            this.Text = RName + "ç‚¹/åŠ èœ";
+            TreeNode newnode1 = tvFood.Nodes.Add("é”…åº•");
+            TreeNode newnode2 = tvFood.Nodes.Add("é…èœ");
+            TreeNode newnode3 = tvFood.Nodes.Add("çƒŸé…’");
+            TreeNode newnode4 = tvFood.Nodes.Add("ä¸»é£Ÿ");
             SqlConnection conn = BaseClass.DBConn.CyCon();
             conn.Open();
             SqlCommand cmd = new SqlCommand("select * from tb_food where foodty='1'", conn);
@@ -62,7 +62,7 @@ namespace MrCy
             sdr.Close();
             cmd = new SqlCommand("select RoomZT from tb_Room where RoomName='"+RName+"'",conn);
             string zt = Convert.ToString(cmd.ExecuteScalar());
-            if (zt.Trim() == "´ıÓÃ")
+            if (zt.Trim() == "å¾…ç”¨")
             {
                 groupBox1.Enabled = false;
                 groupBox2.Enabled = false;
@@ -77,7 +77,7 @@ namespace MrCy
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             string foodname = tvFood.SelectedNode.Text;
-            if (foodname == "¹øµ×" || foodname == "Åä²Ë" || foodname == "ÑÌ¾Æ" || foodname == "Ö÷Ê³")
+            if (foodname == "é”…åº•" || foodname == "é…èœ" || foodname == "çƒŸé…’" || foodname == "ä¸»é£Ÿ")
             {
 
             }
@@ -94,7 +94,7 @@ namespace MrCy
                 conn.Close();
                 if (txtpnum.Text == "")
                 {
-                    MessageBox.Show("ÊıÁ¿²»ÄÜÎª¿Õ");
+                    MessageBox.Show("æ•°é‡ä¸èƒ½ä¸ºç©º");
                     return;
                 }
                 else
@@ -108,14 +108,14 @@ namespace MrCy
         {
             if (txtpnum.Text == "")
             {
-                MessageBox.Show("ÊıÁ¿²»ÄÜÎª¿Õ");
+                MessageBox.Show("æ•°é‡ä¸èƒ½ä¸ºç©º");
                 return;
             }
             else
             {
                 if (Convert.ToInt32(txtpnum.Text) < 1)
                 {
-                    MessageBox.Show("²»ÄÜÎªĞ¡ÓÚ1µÄÊı×Ö");
+                    MessageBox.Show("ä¸èƒ½ä¸ºå°äº1çš„æ•°å­—");
                     return;
                 }
                 else
@@ -137,7 +137,7 @@ namespace MrCy
         {
             if ((e.KeyChar != 8 && !char.IsDigit(e.KeyChar)) && e.KeyChar != 13)
             {
-                MessageBox.Show("ÇëÊäÈëÊı×Ö");
+                MessageBox.Show("è¯·è¾“å…¥æ•°å­—");
                 e.Handled = true;
             }
         }
@@ -160,21 +160,21 @@ namespace MrCy
         {
             if (txtName.Text == "" || txtNum.Text == ""|| txtprice.Text == "")
             {
-                MessageBox.Show("Çë½«Ñ¡Ôñ²ËÏµ");
+                MessageBox.Show("è¯·å°†é€‰æ‹©èœç³»");
                 return;
             }
             else
             {
                 if (txtpnum.Text == "")
                 {
-                    MessageBox.Show("ÊıÁ¿²»ÄÜÎª¿Õ");
+                    MessageBox.Show("æ•°é‡ä¸èƒ½ä¸ºç©º");
                     return;
                 }
                 else
                 {
                     if (Convert.ToInt32(txtpnum.Text) <= 0)
                     {
-                        MessageBox.Show("ÇëÊäÈëÏû·ÑÊıÁ¿");
+                        MessageBox.Show("è¯·è¾“å…¥æ¶ˆè´¹æ•°é‡");
                         return;
                     }
                     else

@@ -18,10 +18,10 @@ namespace MrCy
         private void frmDetails_Load(object sender, EventArgs e)
         {
             txtName.Text = TableName.Trim();
-            SqlConnection conn = BaseClass.DBConn.CyCon();
+            var conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from tb_Room where RoomName='"+txtName.Text+"'",conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
+            var cmd = new SqlCommand("select * from tb_Room where RoomName='"+txtName.Text+"'",conn);
+            var sdr = cmd.ExecuteReader();
             sdr.Read();
             txtNum.Text = sdr["ID"].ToString().Trim();
             txtJc.Text = sdr["RoomJC"].ToString().Trim();
@@ -30,15 +30,8 @@ namespace MrCy
             txtZt.Text = sdr["RoomZT"].ToString().Trim();
             txtLx.Text = sdr["RoomType"].ToString().Trim();
             txtBz.Text = sdr["RoomBZ"].ToString().Trim();
-            string qt = sdr["zhangdandate"].ToString() + "ø™ º”√≤Õ" + "\n" + "”√≤Õ»À ˝£∫" + sdr["Num"].ToString();
-            if (txtZt.Text=="¥˝”√")
-            {
-                richTextBox1.Text = "‘› ±√ª”–∆‰À˚–≈œ¢...";
-            }
-            else
-            {
-                richTextBox1.Text = qt;
-            }
+            var qt = sdr["zhangdandate"].ToString() + "ÂºÄÂßãÁî®È§ê" + "\n" + "Áî®È§ê‰∫∫Êï∞Ôºö" + sdr["Num"].ToString();
+            richTextBox1.Text = txtZt.Text=="ÂæÖÁî®" ? "ÊöÇÊó∂Ê≤°ÊúâÂÖ∂‰ªñ‰ø°ÊÅØ..." : qt;
             sdr.Close();
             conn.Close();
         }

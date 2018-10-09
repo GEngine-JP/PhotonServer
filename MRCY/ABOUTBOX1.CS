@@ -32,12 +32,12 @@ namespace MrCy
             get
             {
                 // 获取此程序集上的所有 Title 属性
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
                 // 如果至少有一个 Title 属性
                 if (attributes.Length > 0)
                 {
                     // 请选择第一个属性
-                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                    var titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     // 如果该属性为非空字符串，则将其返回
                     if (titleAttribute.Title != "")
                         return titleAttribute.Title;
@@ -60,7 +60,7 @@ namespace MrCy
             get
             {
                 // 获取此程序集的所有 Description 属性
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
                 // 如果 Description 属性不存在，则返回一个空字符串
                 if (attributes.Length == 0)
                     return "";
@@ -74,7 +74,7 @@ namespace MrCy
             get
             {
                 // 获取此程序集上的所有 Product 属性
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
                 // 如果 Product 属性不存在，则返回一个空字符串
                 if (attributes.Length == 0)
                     return "";
@@ -88,7 +88,7 @@ namespace MrCy
             get
             {
                 // 获取此程序集上的所有 Copyright 属性
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
                 // 如果 Copyright 属性不存在，则返回一个空字符串
                 if (attributes.Length == 0)
                     return "";
@@ -102,7 +102,7 @@ namespace MrCy
             get
             {
                 // 获取此程序集上的所有 Company 属性
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
                 // 如果 Company 属性不存在，则返回一个空字符串
                 if (attributes.Length == 0)
                     return "";

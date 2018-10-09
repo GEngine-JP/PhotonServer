@@ -19,15 +19,15 @@ namespace MrCy
         public string bjf;
         private void frmJZ_Load(object sender, EventArgs e)
         {
-            this.Text = Rname + "Ω·’À";
-            groupBox1.Text = "µ±«∞◊¿Ã®-" + Rname;
-            SqlConnection conn = BaseClass.DBConn.CyCon();
-            SqlDataAdapter sda = new SqlDataAdapter("select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" + Rname + "'order by ID desc", conn);
-            DataSet ds = new DataSet();
+            this.Text = Rname + "ÁªìË¥¶";
+            groupBox1.Text = "ÂΩìÂâçÊ°åÂè∞-" + Rname;
+            var conn = BaseClass.DBConn.CyCon();
+            var sda = new SqlDataAdapter("select foodname,foodsum,foodallprice,waitername,beizhu,zhuotai,datatime from tb_GuestFood where zhuotai='" + Rname + "'order by ID desc", conn);
+            var ds = new DataSet();
             sda.Fill(ds);
             dgvRecord.DataSource = ds.Tables[0];
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select sum(foodallprice) from tb_GuestFood where zhuotai='" + Rname + "'", conn);
+            var cmd = new SqlCommand("select sum(foodallprice) from tb_GuestFood where zhuotai='" + Rname + "'", conn);
             price = Convert.ToString(cmd.ExecuteScalar());
             if (price == "")
             {
@@ -56,7 +56,7 @@ namespace MrCy
         {
             if ((e.KeyChar != 8 && !char.IsDigit(e.KeyChar)) && e.KeyChar != 13)
             {
-                MessageBox.Show("«Î ‰»Î ˝◊÷");
+                MessageBox.Show("ËØ∑ËæìÂÖ•Êï∞Â≠ó");
                 e.Handled = true;
             }
         }
@@ -84,23 +84,23 @@ namespace MrCy
         {
             if (txtmoney.Text == ""||lbl0.Text=="0")
             {
-                MessageBox.Show("«Îœ»Ω·’À");
+                MessageBox.Show("ËØ∑ÂÖàÁªìË¥¶");
                 return;
             }
             else
             {
                 if (lbl0.Text.Substring(1, 1) == "-")
                 {
-                    MessageBox.Show("Ω∂Ó≤ª◊„");
+                    MessageBox.Show("ÈáëÈ¢ù‰∏çË∂≥");
                     return;
                 }
                 else
                 {
-                    SqlConnection conn = BaseClass.DBConn.CyCon();
+                    var conn = BaseClass.DBConn.CyCon();
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("delete from tb_GuestFood where zhuotai='" + Rname + "'", conn);
+                    var cmd = new SqlCommand("delete from tb_GuestFood where zhuotai='" + Rname + "'", conn);
                     cmd.ExecuteNonQuery();
-                    cmd = new SqlCommand("update tb_Room set RoomZT='¥˝”√',Num=0,WaiterName='' where RoomName='" + Rname + "'", conn);
+                    cmd = new SqlCommand("update tb_Room set RoomZT='ÂæÖÁî®',Num=0,WaiterName='' where RoomName='" + Rname + "'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     this.Close();

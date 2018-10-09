@@ -17,10 +17,10 @@ namespace MrCy
 
         private void frmQxGl_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = BaseClass.DBConn.CyCon();
+            var conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from tb_User",conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
+            var cmd = new SqlCommand("select * from tb_User",conn);
+            var sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
                 comboBox1.Items.Add(sdr["UserName"].ToString().Trim());
@@ -34,18 +34,18 @@ namespace MrCy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userpower="";
+            var userpower="";
             switch (comboBox2.SelectedItem.ToString())
             {
-                case "³¬¼¶¹ÜÀíÔ±": userpower = "0"; break;
-                case "¾­Àí": userpower = "1"; break;
-                case "Ò»°ãÓÃ»§": userpower = "2"; break;
+                case "è¶…çº§ç®¡ç†å‘˜": userpower = "0"; break;
+                case "ç»ç†": userpower = "1"; break;
+                case "ä¸€èˆ¬ç”¨æˆ·": userpower = "2"; break;
             }
-            SqlConnection conn = BaseClass.DBConn.CyCon();
+            var conn = BaseClass.DBConn.CyCon();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("update tb_User set power='"+userpower+"'",conn);
+            var cmd = new SqlCommand("update tb_User set power='"+userpower+"'",conn);
             cmd.ExecuteNonQuery();
-            if (MessageBox.Show("È¨ÏŞĞŞ¸Ä³É¹¦", "ÌáÊ¾", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show("æƒé™ä¿®æ”¹æˆåŠŸ", "æç¤º", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 this.Close();
             }
